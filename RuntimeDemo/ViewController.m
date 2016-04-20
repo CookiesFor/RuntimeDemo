@@ -33,22 +33,93 @@
     
     
     //解归档
-    [self runtimeTest4];
+//    [self runtimeTest4];
     
     
-    int a = 1;
-    int b = 3;
+//    int a = 1;
+//    int b = 3;
     
 //    a = a+b;
 //    b = a-b;
 //    a = a-b;
 //    NSLog(@"a:%d,b:%d",a,b);
     
-    a = a^b;
-    b = a^b;
-    a = a^b;
-    NSLog(@"a:%d,b:%d",a,b);
+//    a = a^b;
+//    b = a^b;
+//    a = a^b;
+//    NSLog(@"a:%d,b:%d",a,b);
+
+    [self createBlock];
+    
+
+    
+    NSLog(@"1");
+    dispatch_sync(dispatch_get_main_queue(), ^{
+       
+        NSLog(@"2");
+    });
+    
+    NSLog(@"3");
+    
+    
+    
 }
+
+//block
+-(void)createBlock
+{
+    //create NSGlobalBlock
+    int(^sum)(int,int) = ^(int a,int b)
+    {
+        return a+b;
+        
+    };
+    
+    NSLog(@"%d",sum(2,3));
+    NSLog(@"block is%@",sum);
+    
+    
+    __block int d = 20;
+    static int c = 10;
+    
+    int(^dBlock)(int,int) = ^(int num,int num2)
+    {
+        c++;
+        d++;
+        return num * c+num2*d;
+    };
+    
+    NSLog(@"%d",dBlock(3,4));
+    
+    
+    //声明和实现写在一起 就像变量的声明实现
+    int(^myBlock)(int,int) = ^(int a,int b)
+    {
+        return a+b;
+    };
+    NSLog(@"%d",myBlock(2,3));
+    
+    //声明和实现分开,变量先声明，再实现
+    int(^youBlock)(int,int);
+    youBlock = ^(int a,int b)
+    {
+        return a+b;
+    };
+    NSLog(@"%d",youBlock(2,3));
+    
+    
+    //无参数，无返回值
+    void(^threeBlock)() = ^()
+    {
+        NSLog(@"无参数，无返回值");
+    };
+    NSLog(@"%@",threeBlock);
+    
+    
+}
+
+
+
 
 //获取一个类的所有成员变量名
 -(void)runtimeTest

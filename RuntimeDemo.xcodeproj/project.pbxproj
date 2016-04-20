@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B80936271CBB751400D4B314 /* SwiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80936261CBB751400D4B314 /* SwiftViewController.swift */; };
 		B83BFE9C1CB5E7D9001E9929 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B83BFE9B1CB5E7D9001E9929 /* main.m */; };
 		B83BFE9F1CB5E7D9001E9929 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B83BFE9E1CB5E7D9001E9929 /* AppDelegate.m */; };
 		B83BFEA21CB5E7D9001E9929 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B83BFEA11CB5E7D9001E9929 /* ViewController.m */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B80936251CBB751400D4B314 /* RuntimeDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		B80936261CBB751400D4B314 /* SwiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftViewController.swift; sourceTree = "<group>"; };
 		B83BFE971CB5E7D9001E9929 /* RuntimeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RuntimeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B83BFE9B1CB5E7D9001E9929 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B83BFE9D1CB5E7D9001E9929 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +111,7 @@
 				B83BFE9E1CB5E7D9001E9929 /* AppDelegate.m */,
 				B83BFEA01CB5E7D9001E9929 /* ViewController.h */,
 				B83BFEA11CB5E7D9001E9929 /* ViewController.m */,
+				B80936261CBB751400D4B314 /* SwiftViewController.swift */,
 				B83BFECD1CB5E802001E9929 /* Person.h */,
 				B83BFECE1CB5E802001E9929 /* Person.m */,
 				B83BFEA31CB5E7D9001E9929 /* Main.storyboard */,
@@ -115,6 +119,7 @@
 				B83BFEA81CB5E7D9001E9929 /* LaunchScreen.storyboard */,
 				B83BFEAB1CB5E7D9001E9929 /* Info.plist */,
 				B83BFE9A1CB5E7D9001E9929 /* Supporting Files */,
+				B80936251CBB751400D4B314 /* RuntimeDemo-Bridging-Header.h */,
 			);
 			path = RuntimeDemo;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 				B83BFEA21CB5E7D9001E9929 /* ViewController.m in Sources */,
 				B83BFE9F1CB5E7D9001E9929 /* AppDelegate.m in Sources */,
 				B83BFECF1CB5E802001E9929 /* Person.m in Sources */,
+				B80936271CBB751400D4B314 /* SwiftViewController.swift in Sources */,
 				B83BFE9C1CB5E7D9001E9929 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,11 +425,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = RuntimeDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.SL.-.RuntimeDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RuntimeDemo/RuntimeDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -431,11 +440,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = RuntimeDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.SL.-.RuntimeDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RuntimeDemo/RuntimeDemo-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -504,6 +515,7 @@
 				B83BFEC61CB5E7D9001E9929 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B83BFEC71CB5E7D9001E9929 /* Build configuration list for PBXNativeTarget "RuntimeDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +524,7 @@
 				B83BFEC91CB5E7D9001E9929 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B83BFECA1CB5E7D9001E9929 /* Build configuration list for PBXNativeTarget "RuntimeDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +533,7 @@
 				B83BFECC1CB5E7D9001E9929 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
