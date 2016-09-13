@@ -10,7 +10,7 @@
 #import "Person.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
-
+#import "SecondViewController.h"
 @interface ViewController ()<PersonDelegate>
 
 @end
@@ -49,21 +49,67 @@
 //    a = a^b;
 //    NSLog(@"a:%d,b:%d",a,b);
 
-    [self createBlock];
+//    [self createBlock];
+    
+    self.title = @"1";
     
 
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [btn setFrame:CGRectMake(100, 100, 100, 100)];
+    [btn setBackgroundColor:[UIColor redColor]];
+    [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
+    [btn setTitle:@"block" forState:UIControlStateNormal];
+    [self.view addSubview:btn];
+//    NSLog(@"1");
+//    dispatch_sync(dispatch_get_main_queue(), ^{
+//       
+//        NSLog(@"2");
+//    });
+//    
+//    NSLog(@"3");
     
-    NSLog(@"1");
-    dispatch_sync(dispatch_get_main_queue(), ^{
-       
-        NSLog(@"2");
-    });
     
-    NSLog(@"3");
+//    [self setFirstBlock:^{
+//       
+//        
+//        
+//    }];
     
     
     
 }
+
+
+-(void)setFirstBlock:(FirstBlock)firstBlock
+{
+    if (_firstBlock != firstBlock) {
+        
+        _firstBlock = [firstBlock copy];
+        
+    }
+}
+
+-(FirstBlock)firstBlock
+{
+    return _firstBlock;
+}
+
+-(void)btnClick
+{
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"change" object:nil];
+    SecondViewController *second = [[SecondViewController alloc]init];
+    
+    [second setSecondBlock:^(NSString *name) {
+       
+        self.view.backgroundColor = [UIColor blueColor];
+        
+    }];
+    
+    
+    
+    [self.navigationController pushViewController:second animated:NO];
+}
+
 
 //block
 -(void)createBlock
@@ -86,7 +132,7 @@
     {
         c++;
         d++;
-        return num * c+num2*d;
+        return num * c + num2 * d;
     };
     
     NSLog(@"%d",dBlock(3,4));

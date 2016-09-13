@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+typedef void(^FirstBlock)();
 
+@interface ViewController : UIViewController
+{
+    FirstBlock _firstBlock;
+}
+
+-(void)setFirstBlock:(FirstBlock)firstBlock;
+-(FirstBlock)firstBlock;
 
 @end
 
